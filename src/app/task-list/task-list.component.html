@@ -1,0 +1,48 @@
+<div class="table container  shadow p-3 mb-5 mt-5 bg-white rounded">
+ 
+
+ <div class="row">
+  <div class="col-3">
+    <div class="form-group mx-sm-3 mb-2">
+      <input type="Search"  class="form-control" id="inputSearch" placeholder="Search Task">
+    </div>
+  </div>
+  <div class="col-3 offset-6">
+    <div class="form-group mx-sm-3 mb-2">   
+      <button type="button" class="btn btn-secondary" [routerLink]="['/add']">New Task</button>
+    </div>
+  </div>
+ </div>
+
+  <table class="table container table-bordered ">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Discription</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+
+    <tbody class="text-center">
+      <tr *ngFor="let item of tasks">
+        <th scope="row">{{item.id}}</th>
+        <th scope="row">{{item.title}}</th>
+        <th scope="row">{{item.description}}</th>
+        <th scope="row">{{item.dueDate | date : "dd-MM-yyyy"}}</th>
+        <th scope="row">{{item.priority}}</th>
+        <th scope="row">
+          <div class="d-flex justify-content-evenly">
+            <button class="btn btn-info btn-sm" [routerLink]="['/edit']"><i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-danger btn-sm"><i class="bi bi-trash3" (click)="onDelete(item.id)"></i></button>
+          </div>
+        </th>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
