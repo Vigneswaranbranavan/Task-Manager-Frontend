@@ -8,7 +8,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 export const routes: Routes = [
     {path: '', component:TaskListComponent},
     {path: 'add',component:TaskAddComponent},
-    {path: 'edit',component:TaskEditComponent},
+    {path: 'edit/:id',component:TaskEditComponent},
     {path: 'userlist',component:UserListComponent},
     {path: 'useredit',component:UserEditComponent}
 

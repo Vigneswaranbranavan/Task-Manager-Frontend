@@ -19,11 +19,12 @@ export class TaskEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
+    // let today = new Date().toISOString().slice(0,10);
     this.TaskForm = this.fb.group({
       id: [''],
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      dueDate: ['', [Validators.required]],
+      dueDate: [ '' , [Validators.required]],
       priority: ['', [Validators.required]],
     });
   }
@@ -32,8 +33,16 @@ export class TaskEditComponent implements OnInit {
     const taskId = this.route.snapshot.paramMap.get('id');
     if (taskId) {
       const numericTaskId = Number(taskId); // Convert string to number
-      this.taskService.getTaskById(numericTaskId).subscribe((task: Task) => {
-          this.TaskForm.patchValue(task); 
+      this.taskService.getTaskById(numericTaskId).subscribe(task => {
+        let today = new Date().toISOString().slice(0,10);
+          this.TaskForm.patchValue({
+            id: task.id,
+            title: task.title,
+            description: task.description,
+            today: task.duedate,
+            priority: task.priority,
+          });
+
       });
     }
   }

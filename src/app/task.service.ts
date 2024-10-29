@@ -8,6 +8,7 @@ export class TaskService {
 
 
   url = 'http://localhost:5029/api/TaskItems';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +21,7 @@ export class TaskService {
   }
 
   updateTask(id: number, data: Task) {
-    return this.http.put(this.url, data )
+    return this.http.put(this.url+"/"+id, data )
   }
 
   getTaskById(id: number){
