@@ -1,47 +1,49 @@
-<div class="table container  shadow p-3 mb-5 mt-5 bg-white rounded">
- 
+<form class="table container  shadow p-3 mb-5 mt-5 bg-white rounded" >
 
-    <div class="row">
-     <div class="col-3">
-       <div class="form-group mx-sm-3 mb-2">
-         <input type="Search"  class="form-control" id="inputSearch" placeholder="Search Task">
-       </div>
-     </div>
-     <div class="col-3 offset-6">
-       <div class="form-group mx-sm-3 mb-2">   
-         <button type="button" class="btn btn-secondary" [routerLink]="['/useredit']">New User</button>
-       </div>
-     </div>
+
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="Search" class="form-control" id="inputSearch" placeholder="Search Task">
+      </div>
     </div>
-   
-     <table class="table container table-bordered ">
-       <thead class="text-center">
-         <tr>
-           <th scope="col">#</th>
-           <th scope="col">Name</th>
-           <th scope="col">Mobile</th>
-           <th scope="col">E-mail</th>
-           <th scope="col">Action</th>
-   
-         </tr>
-       </thead>
-   
-       <tbody class="text-center">
-         <tr *ngFor="let item of user">
-           <th scope="row">{{item.id}}</th>
-           <th scope="row">{{item.name}}</th>
-           <th scope="row">{{item.phoneNumber}}</th>
-           <th scope="row">{{item.email}}</th>
-           <th scope="row">
-             <div class="d-flex justify-content-evenly">
-               <button class="btn btn-info btn-sm" ><i class="bi bi-pencil-square" [routerLink]="['/useredit']"></i></button>
-               <button class="btn btn-danger btn-sm"><i class="bi bi-trash3" (click)="onDelete(item.id)" ></i></button>
-             </div>
-           </th>
-         </tr>
-   
-   
-       </tbody>
-     </table>
-   </div>
-   
+    <div class="col-3 offset-6">
+      <div class="form-group mx-sm-3 mb-2">
+        <button type="button" class="btn btn-secondary" [routerLink]="['/useredit']">New User</button>
+      </div>
+    </div>
+  </div>
+
+  <table class="table container table-bordered ">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Password</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+
+    <tbody class="text-center">
+      <tr *ngFor="let item of user">
+        <th scope="row">{{item.id}}</th>
+        <th scope="row">{{item.name}}</th>
+        <th scope="row">{{item.phoneNumber}}</th>
+        <th scope="row">{{item.password}}</th>
+        <th scope="row">{{item.email}}</th>
+        <th scope="row">
+          <div class="d-flex justify-content-evenly">
+            <button class="btn btn-info btn-sm"><i class="bi bi-pencil-square"
+                [routerLink]="['/useredit' , item.id]"></i></button>
+            <button class="btn btn-danger btn-sm"><i class="bi bi-trash3" (click)="onDelete(item.id)"></i></button>
+          </div>
+        </th>
+      </tr>
+
+
+    </tbody>
+  </table>
+</form>

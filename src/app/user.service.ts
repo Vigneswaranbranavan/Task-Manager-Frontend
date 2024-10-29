@@ -19,7 +19,7 @@ export class UserService {
   }
 
   updateTask(id: number, data: User) {
-    return this.http.put(this.url, data )
+    return this.http.put(this.url+"/"+id, data )
   }
 
   getTaskById(id: number){
@@ -33,6 +33,7 @@ export class UserService {
 }
 
 export interface User{
+  password: any;
   id:number;
   name:string;
   email:string;
