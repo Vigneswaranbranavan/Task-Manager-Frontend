@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { UserService } from '../user.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-edit',
   standalone: true,
-  imports: [RouterModule,ReactiveFormsModule],
+  imports: [RouterModule,ReactiveFormsModule,ToastrModule],
   templateUrl: './user-edit.component.html',
   styleUrl: './user-edit.component.css'
 })
@@ -19,6 +20,7 @@ export class UserEditComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
      // Initializing userForm to avoid TypeScript error
     this.userForm = this.fb.group({
@@ -52,11 +54,13 @@ export class UserEditComponent implements OnInit {
       const user = this.userForm.value
       user.id = id
       this.userService.updateTask(id, user).subscribe(() => {
-        alert('User updated successfully!');
+        // alert('User updated successfully!');
+        this.toastr.success('User updated successfully!');
         this.router.navigate(['/']);
       });
     } else {
-      alert('Please fill out the form correctly.');
+      // alert('Please fill out the form correctly.');
+      this.toastr.error('Please fill out the form correctly');
     }
   }
   

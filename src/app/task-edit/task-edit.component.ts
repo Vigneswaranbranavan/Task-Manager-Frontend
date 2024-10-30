@@ -2,11 +2,12 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Task, TaskService } from '../task.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule,ToastrModule],
   templateUrl: './task-edit.component.html',
   styleUrls: ['./task-edit.component.css']
 })
@@ -17,7 +18,8 @@ export class TaskEditComponent implements OnInit {
     private fb: FormBuilder,
     private taskService: TaskService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     // let today = new Date().toISOString().slice(0,10);
     this.TaskForm = this.fb.group({
@@ -51,11 +53,13 @@ export class TaskEditComponent implements OnInit {
     if (this.TaskForm.valid) {
       const id = Number(this.TaskForm.get('id')?.value);
       this.taskService.updateTask(id, this.TaskForm.value).subscribe(() => {
-       alert('Task updated successfully');
+      //  alert('Task updated successfully');
+       this.toastr.success('Task updated successfuly');
         this.router.navigate(['/']);
       });
     } else {
-      alert('Please fill in all required fields.');
+      // alert('Please fill in all required fields.');
+      this.toastr.error('Please fill in all Required fields');
     }
   }
 }

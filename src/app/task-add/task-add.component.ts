@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Task, TaskService } from '../task.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-add',
   standalone: true,
-  imports: [RouterModule,ReactiveFormsModule],
+  imports: [RouterModule,ReactiveFormsModule,ToastrModule],
   templateUrl: './task-add.component.html',
   styleUrl: './task-add.component.css'
 })
@@ -21,6 +22,7 @@ export class TaskAddComponent implements OnInit {
     private fb: FormBuilder,
     private taskService: TaskService,
     private router: Router,
+    private toastr: ToastrService
 
   ) {
     let today = new Date().toISOString().slice(0,10);
@@ -44,6 +46,7 @@ export class TaskAddComponent implements OnInit {
     let task = this.taskForm.value;
     this.taskService.createTask(task).subscribe(data => {
       this.router.navigate([''])
+      this.toastr.success('Task added Succesfully!!')
     })
   }
 
