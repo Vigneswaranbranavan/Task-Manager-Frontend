@@ -9,7 +9,7 @@
     </div>
     <div class="col-3 offset-6">
       <div class="form-group mx-sm-3 mb-2">
-        <button type="button" class="btn btn-secondary" [routerLink]="['/useredit']">New User</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/useradd']">+New User</button>
       </div>
     </div>
   </div>
@@ -22,6 +22,7 @@
         <th scope="col">Mobile</th>
         <th scope="col">Password</th>
         <th scope="col">E-mail</th>
+        <th scope="col">Address</th>
         <th scope="col">Action</th>
 
       </tr>
@@ -34,6 +35,11 @@
         <th scope="row">{{item.phoneNumber}}</th>
         <th scope="row">{{item.password}}</th>
         <th scope="row">{{item.email}}</th>
+        <th scope="row">
+          {{item.address?.addressLine1}},
+          {{item.address?.addressLine2}},
+          {{item.addtess?.city}}
+        </th>
         <th scope="row">
           <div class="d-flex justify-content-evenly">
             <button class="btn btn-info btn-sm"><i class="bi bi-pencil-square"

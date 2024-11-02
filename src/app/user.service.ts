@@ -33,11 +33,17 @@ export class UserService {
 }
 
 export interface User{
-  password: any;
-  id:number;
-  name:string;
-  email:string;
-  phoneNumber:string;
-  
+  password: any,
+  id:number,
+  name:string,
+  email:string,
+  phoneNumber:string,
+  address:Address
 }
 
+export interface Address{
+  addressLine1:string,
+  addressLine2:string,
+  city:string,
+  street:string
+}

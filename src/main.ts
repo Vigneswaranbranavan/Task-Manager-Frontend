@@ -10,7 +10,7 @@ bootstrapApplication(AppComponent,{
     importProvidersFrom(
       BrowserAnimationsModule,
       ToastrModule.forRoot({
-        timeOut:3000,
+        timeOut:1000,
         positionClass:'toast-top-center',
         preventDuplicates: true,
       })

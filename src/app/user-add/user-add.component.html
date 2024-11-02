@@ -1,0 +1,44 @@
+<form class="container shadow p-3 mb-4 mt-4 bg-muted rounded" style="width: 30%;" [formGroup]="userForm">
+    <h3 class="text-center text-danger">Add New User</h3>
+    <div class="form-group p-3">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" formControlName="name">
+    </div>
+    <div class="form-group p-3">
+      <label for="email">E-mail</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email" formControlName="email">
+    </div>
+    <div class="form-group p-3">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="User Password" formControlName="password">
+    </div>
+    <div class="form-group p-3">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" class="form-control" id="phoneNumber" placeholder="Enter Mobile" formControlName="phoneNumber">
+    </div>
+    
+    <h5 class="text-center text-secondary">Add Address Infomation</h5>
+    <div formGroupName="address">
+      <div class="form-group p-3">
+        <label for="addressline1">Address Line1</label>
+        <input type="text" class="form-control" id="addressline1" placeholder="Enter Address" formControlName="addressLine1">
+      </div>
+      <div class="form-group p-3">
+        <label for="addressline2">Addess Line2</label>
+        <input type="text" class="form-control" id="addressline2" placeholder="Enter Address" formControlName="addressLine2">
+      </div>
+      <div class="form-group p-3">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" placeholder="Enter City" formControlName="city">
+      </div>
+    </div>
+  
+  
+  
+  
+    <button type="button" class="btn btn-primary p-2 m-2" (click)="onPress()">Submit</button>
+    <button type="button" class="btn btn-secondary p-2 m-2" [routerLink]="['/userlist']">Cancel</button>
+  </form>
+  
+  
+  

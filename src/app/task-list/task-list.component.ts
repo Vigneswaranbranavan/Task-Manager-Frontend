@@ -2,11 +2,12 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TaskService } from '../task.service';
 import { CommonModule } from '@angular/common';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,ToastrModule],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css']
 })
@@ -14,7 +15,7 @@ export class TaskListComponent implements OnInit {
   tasks: any[] = [];
   searchTerm: string = '';
 
-  constructor(private taskService: TaskService, private router: Router) {}
+  constructor(private taskService: TaskService, private router: Router,private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.loadTasks();
@@ -29,7 +30,8 @@ export class TaskListComponent implements OnInit {
   onDelete(taskId: number) {
     if (confirm('Are you sure you want to delete this task?')) {
       this.taskService.deleteTask(taskId).subscribe(() => {
-        alert('Task deleted successfully');
+        // alert('Task deleted successfully');
+        this.toastr.error('Task Deleted!!...');
         this.loadTasks();
       });
     }
