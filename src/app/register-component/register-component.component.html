@@ -1,0 +1,47 @@
+<form class="container shadow p-3 mb-4 mt-5 bg-muted rounded" style="width: 40%;">
+
+    <div class="row">
+        <div class="col-6">
+            <h3 class="text-left text-dark">Sign-Up</h3>
+            <div class="form-group p-3">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Full Name" formControlName="name">
+            </div>
+            <div class="form-group p-3">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email" formControlName="email">
+            </div>
+            <div class="form-group p-3">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" id="Password" placeholder="Password"
+                    formControlName="Password">
+            </div>
+            <div class="form-group p-3">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
+                    formControlName="confirmPassword">
+            </div>
+            <div class="form-group p-3">
+                <label for="Role">Role</label>
+                <select class="form-control">
+                    <option>Admin</option>
+                    <option>Viewer</option>
+                </select>
+            </div>
+            <div class="form-group p-3 mt-2">
+                <input type="checkbox">
+                <label> I agree to all statements</label>
+            </div>
+
+        </div>
+
+        <div class="col-6">
+            <img src="/2024.11.02 - Lab work - signup-image.jpg">
+        </div>
+
+    </div>
+
+
+    <button type="button" class="btn btn-primary p-2 m-2">Submit</button>
+    <button type="button" class="btn btn-secondary p-2 m-2">Cancel</button>
+</form>
