@@ -10,13 +10,54 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 
 
 export const routes: Routes = [
-    {path: '', component:TaskListComponent},
-    {path: 'add',component:TaskAddComponent},
-    {path: 'edit/:id',component:TaskEditComponent},
-    {path: 'userlist',component:UserListComponent},
-    {path: 'useredit/:id',component:UserEditComponent},
-    {path: 'useradd', component:UserAddComponent},
-    {path: 'register',component:RegisterComponentComponent},
-    {path: 'login',component:LoginComponentComponent}
+    {
+        path:'',
+        children:[
+            {path: 'register',component:RegisterComponentComponent},
+            {path: 'login',component:LoginComponentComponent},
+        ]
+    },
+
+    {
+        path: 'admin',
+        children: [
+            {path: '', component:TaskListComponent},
+            {path: 'add',component:TaskAddComponent},
+            {path: 'edit/:id',component:TaskEditComponent},
+            {path: 'userlist',component:UserListComponent},
+            {path: 'useredit/:id',component:UserEditComponent},
+            {path: 'useradd', component:UserAddComponent},
+        ]
+
+
+    }
 
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const routes: Routes = [
+//     {path: '', component:TaskListComponent},
+//     {path: 'add',component:TaskAddComponent},
+//     {path: 'edit/:id',component:TaskEditComponent},
+//     {path: 'userlist',component:UserListComponent},
+//     {path: 'useredit/:id',component:UserEditComponent},
+//     {path: 'useradd', component:UserAddComponent},
+//     {path: 'register',component:RegisterComponentComponent},
+//     {path: 'login',component:LoginComponentComponent}
+
+// ];
