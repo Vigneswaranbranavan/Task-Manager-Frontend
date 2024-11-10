@@ -2,9 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { TaskService } from './task.service';
-import { TaskListComponent } from './task-list/task-list.component';
-import { TaskAddComponent } from './task-add/task-add.component';
-import { TaskEditComponent } from './task-edit/task-edit.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -12,7 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,TaskListComponent,TaskAddComponent,TaskEditComponent,CommonModule,RouterModule,ToastrModule],
+  imports: [RouterOutlet,CommonModule,RouterModule,ToastrModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

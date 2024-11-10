@@ -7,6 +7,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { RegisterComponentComponent } from './register-component/register-component.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
+import { authGuard } from './auth.guard';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
 
     {
         path: 'admin',
+        canActivate:[authGuard],
         children: [
             {path: '', component:TaskListComponent},
             {path: 'add',component:TaskAddComponent},
@@ -33,8 +35,6 @@ export const routes: Routes = [
     }
 
 ];
-
-
 
 
 
