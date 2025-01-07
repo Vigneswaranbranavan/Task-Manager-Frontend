@@ -9,7 +9,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [CommonModule,RouterModule,ToastrModule],
   templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.css'
+  styleUrl: './user-list.component.css',
 })
 export class UserListComponent {
 

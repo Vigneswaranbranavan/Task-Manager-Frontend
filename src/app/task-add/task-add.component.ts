@@ -9,7 +9,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [RouterModule,ReactiveFormsModule,ToastrModule],
   templateUrl: './task-add.component.html',
-  styleUrl: './task-add.component.css'
+  styleUrl: './task-add.component.css',
 })
 export class TaskAddComponent implements OnInit {
   tasks:Task[]=[];

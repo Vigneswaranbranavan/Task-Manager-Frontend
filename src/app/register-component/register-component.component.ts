@@ -6,7 +6,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-register-component',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule,RouterLink],
+  imports: [ReactiveFormsModule, FormsModule, RouterLink, CommonModule],
   templateUrl: './register-component.component.html',
   styleUrl: './register-component.component.css'
 })
@@ -14,7 +14,7 @@ export class RegisterComponentComponent {
   registerForm: FormGroup
 
   constructor(private fb: FormBuilder,
-    
+
   ) {
     this.registerForm = this.fb.group({
       fullName: ['', [
@@ -28,7 +28,7 @@ export class RegisterComponentComponent {
         Validators.minLength(3),
         Validators.maxLength(20)
       ]],
-     
+
       role: ['Admin', [Validators.required]],
 
 
@@ -56,6 +56,6 @@ export class RegisterComponentComponent {
       this.registerForm.markAllAsTouched();
     }
 
-  
-}
+
+  }
 }

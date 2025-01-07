@@ -3,13 +3,14 @@ import { Router, RouterModule } from '@angular/router';
 import { TaskService } from '../task.service';
 import { CommonModule } from '@angular/common';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
   imports: [CommonModule, RouterModule,ToastrModule],
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
   tasks: any[] = [];

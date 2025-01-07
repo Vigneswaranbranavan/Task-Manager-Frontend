@@ -12,21 +12,10 @@ import { ToastrModule } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,TaskListComponent,TaskAddComponent,TaskEditComponent,CommonModule,RouterModule,ToastrModule],
+  imports: [RouterOutlet,CommonModule,RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  title = 'task-manager';
+export class AppComponent {
 
-  tasks: any[] = [];
-
-  constructor(private taskservice: TaskService)
-  {}
-  
-  ngOnInit(): void {
-    this.taskservice.getTask().subscribe(p => {
-      this.tasks = p;
-    })
-  }
 }
